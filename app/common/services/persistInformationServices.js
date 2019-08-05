@@ -6,6 +6,7 @@ const obj = {
         try {
             await AsyncStorage.setItem('accessToken', JSON.stringify(accessToken));
         } catch (error) {
+            return null ;
         }
     },
     async getAccessToken() {
@@ -15,7 +16,14 @@ const obj = {
         } catch (error) {
             return null;
         }
-    }
+    },
+    async resetAll() {
+        try {
+            await AsyncStorage.removeItem('accessToken') ;
+        } catch (error) {
+            return null ;
+        }
+    },
 }
 
 export default obj;

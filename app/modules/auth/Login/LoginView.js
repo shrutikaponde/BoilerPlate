@@ -19,9 +19,8 @@ class LoginView extends Component {
         this.props.onLogin('username', 'password');
     };
 
-    handleRegisterNow = () => {
+    handleRegister = () => {
         this.props.navigation.navigate("Register")
-        // this.props.onLogin('username', 'password');
     };
 
     render() {
@@ -48,7 +47,7 @@ class LoginView extends Component {
                             <TouchableOpacity onPress={this.handleLogin}>
                                 <Text>Login</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={this.handleRegisterNow}>
+                            <TouchableOpacity onPress={this.handleRegister}>
                                 <Text>Register Now</Text>
                             </TouchableOpacity>
                         </View>

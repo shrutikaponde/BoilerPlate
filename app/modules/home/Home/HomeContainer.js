@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HomeView from './HomeView';
 import { connect } from 'react-redux';
-import * as logoutActions from 'app/common/actions/logoutActions';
+import * as authActions from 'app/common/actions/authActions';
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ function mapStateToProps() {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        onLogout : () => dispatch(logoutActions.requestLogout())
+        onLogout : () => dispatch(authActions.requestLogout())
     };
 }
 export default connect(

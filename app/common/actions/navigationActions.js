@@ -7,8 +7,12 @@ export function navigateToHome(params) {
     NavigationService.navigate('Home', params);
 }
 
-export function navigateToRegisterNow(params) {
+export function navigateToRegister(params) {
     NavigationService.navigate('Register', params);
+}
+
+export function navigateToLogin(params) {
+    NavigationService.navigate('Login', params);
 }
 
 export function navigationReset() {

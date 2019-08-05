@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LandingView from './LandingView';
 import { connect } from 'react-redux';
-import * as loginActions from 'app/common/actions/loginActions';
 
 class LandingContainer extends Component {
     constructor(props) {

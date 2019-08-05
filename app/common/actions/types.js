@@ -12,5 +12,10 @@ export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_RESPONSE = 'LOGOUT_RESPONSE';
 export const LOGOUT_FAILED = 'LOGOUT_FAILED';
 
+// register
+export const REGISTER_REQUEST = 'REGISTER_REQUEST';
+export const REGISTER_RESPONSE = 'REGISTER_RESPONSE';
+export const REGISTER_FAILED = 'REGISTER_FAILED';
+
 // reset state
 export const RESET_STATE = 'RESET_STATE';

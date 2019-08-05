@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import LoginView from './LoginView';
+import RegisterView from './RegisterView';
 import { connect } from 'react-redux';
 import * as authActions from 'app/common/actions/authActions';
 
-class LoginContainer extends Component {
+class RegisterContainer extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return <LoginView {...this.props} />;
+        return <RegisterView {...this.props} />;
     }
 }
 
@@ -18,10 +18,10 @@ function mapStateToProps() {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        onLogin: (un, pwd) => dispatch(authActions.requestLogin(un, pwd))
+        onRegister: (un, pwd) => dispatch(authActions.requestRegisteration(un, pwd))
     };
 }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginContainer);
+)(RegisterContainer);
