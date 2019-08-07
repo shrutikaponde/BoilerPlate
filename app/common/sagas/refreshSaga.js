@@ -4,23 +4,23 @@ import persistInformationServices from "app/common/services/persistInformationSe
 import {
   LOGIN_RESPONSE,
   REGISTER_RESPONSE,
-  LOGOUT_RESPONSE,
-//   RESET_STATE
+  LOGOUT_RESPONSE
+  //   RESET_STATE
 } from "app/common/actions/types";
 
 export default function* refreshAsync(response, action) {
   switch (action) {
     case LOGIN_RESPONSE:
-        persistInformationServices.setAccessToken(response.accessToken);
-        yield call(navigationActions.navigateToHome);
-        break;
+      persistInformationServices.setAccessToken(response.accessToken);
+      yield call(navigationActions.navigateToHome);
+      break;
     case REGISTER_RESPONSE:
-        yield call(navigationActions.navigateToLogin);
-        break;
+      yield call(navigationActions.navigateToLogin);
+      break;
     case LOGOUT_RESPONSE:
       persistInformationServices.resetAll();
       //   yield put(RESET_STATE);
-      yield call(navigationActions.navigationReset);
+      yield call(navigationActions.navigateToLanding);
       break;
     default:
       console.log("refresh default do nothing");
