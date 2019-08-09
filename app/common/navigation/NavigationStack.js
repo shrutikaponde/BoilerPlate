@@ -41,7 +41,8 @@ const MainDrawer = createDrawerNavigator({
   Home: HomeStack
   //   Settings: SettingsStack,
   //   Logout: LogoutStack
-});
+}
+);
 
 const AuthStack = createStackNavigator(
   {
