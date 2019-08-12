@@ -1,6 +1,7 @@
-import { Alert, PermissionsAndroid } from "react-native";
+import { Alert, PermissionsAndroid, Linking } from "react-native";
 import { permissionConstants } from "app/common/constants";
 import Geolocation from "@react-native-community/geolocation";
+// import Permissions from 'react-native-permissions';
 
 export function checkPermission(permission) {
   return PermissionsAndroid.check(permission).then(g => {
@@ -82,19 +83,11 @@ export function checkAndRequestCamera() {
   return checkAndRequestPermission(permission, rationale);
 }
 
-export async function checknRequestAllPremissions() {
-  const p1 = await checkAndRequestLocation();
-  const p2 = await checkAndRequestReadContacts();
-  const p3 = await checkAndRequestCallPhone();
-  const p4 = await checkAndRequestReadStorage();
-  const p5 = await checkAndRequestWriteStorage();
-  const p6 = await checkAndRequestCamera();
+async function locationAccessNeeded(granted) {
+  return new Promise((resolve) => {
+    if (granted === permissionConstants.GRANTED) return resolve(permissionConstants.GRANTED);
 
-  // while (
-  //   p1 !== permissionConstants.GRANTED
-  // ) {
-  //   console.log("AGain !!!")
-    if (p1 === permissionConstants.NEVER_ASK_AGAIN) {
+    if (granted === permissionConstants.NEVER_ASK_AGAIN) {
       Alert.alert(
         null,
         "You need to allow access for location",
@@ -102,24 +95,42 @@ export async function checknRequestAllPremissions() {
           {
             text: "OK",
             onPress: () => {
-              // open settings
+              // open settings for IOS
+              // if (Permissions.canOpenSettings()) Permissions.openSettings()
+              Linking.openSettings()
             }
           }
         ],
         { cancelable: false }
       );
-    } else if (p1 === permissionConstants.DENIED) {
+    } else if (granted === permissionConstants.DENIED) {
       Alert.alert(
         null,
         "You need to allow access for location",
         [
           {
             text: "OK",
-            onPress: () => await requestPermission(permissionConstants.LOCATION, null)
+            onPress: async () => {
+              const newGranted = await requestPermission(
+                permissionConstants.LOCATION,
+                null
+              );
+               return resolve(locationAccessNeeded(newGranted))
+              }
           }
         ],
         { cancelable: false }
       );
     }
-  // }
+  })
+}
+export async function checknRequestAllPremissions() {
+  const p1 = await checkAndRequestLocation();
+  await locationAccessNeeded(p1)
+
+  const p2 = await checkAndRequestReadContacts();
+  const p3 = await checkAndRequestCallPhone();
+  const p4 = await checkAndRequestReadStorage();
+  const p5 = await checkAndRequestWriteStorage();
+  const p6 = await checkAndRequestCamera();
 }
