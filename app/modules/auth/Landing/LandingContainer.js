@@ -8,10 +8,13 @@ import {
   getCurrentPosition
 } from "app/common/utils/permissions";
 import { permissionConstants } from "app/common/constants";
+import SplashScreen from 'react-native-splash-screen';
 
 class LandingContainer extends Component {
   constructor(props) {
     super(props);
+    SplashScreen.hide() ;
+
   }
 
   async componentDidMount() {
