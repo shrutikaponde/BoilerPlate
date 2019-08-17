@@ -1,11 +1,13 @@
-import { AsyncStorage } from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const obj = {
 
     async setAccessToken(accessToken) {
         try {
+            console.log("set access token")
             await AsyncStorage.setItem('accessToken', JSON.stringify(accessToken));
         } catch (error) {
+            console.log(error)
             return null ;
         }
     },
