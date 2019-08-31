@@ -24,7 +24,6 @@ function goBack(key) {
 }
 
 function reset() {
-  // Promise.all([
   _navigator.dispatch(
     StackActions.reset({
       index: 0,
@@ -32,11 +31,9 @@ function reset() {
       actions: [NavigationActions.navigate({ routeName: "HomeTabNavigator" })]
     }),
   )
-// ]).then(() => navigate('Landing'))
 }
 
 // add other navigation functions that you need and export them
-
 export default {
   navigate,
   goBack,

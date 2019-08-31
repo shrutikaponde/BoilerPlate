@@ -1,7 +1,7 @@
 /**
  *  Redux saga class init
  */
-import { fork, all, put, take, takeEvery, takeLeading } from 'redux-saga/effects'
+import { fork, all} from 'redux-saga/effects'
 import { loginFlow, logoutFlow, registerFlow } from './authSaga'
 
 // The root saga is what we actually send to Redux's middleware. In here we fork

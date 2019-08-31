@@ -26,15 +26,6 @@ if (__DEV__) {
 }
 
 const reducers = persistCombineReducers(config, rootReducers);
-// const rootReducer = (state = initialState, action) => {
-//     if(action.type == "RESET_STATE") {
-//         state = undefined;
-//         persistor.flush().then(() => { return persistor.purge() })
-//         console.log('RESET_STATE', state)
-
-//     }
-//     return reducers(state, action);
-// }
 const clearState = (reducer) =>  {
     return function (state, action) {
   
@@ -46,11 +37,9 @@ const clearState = (reducer) =>  {
     };
   }
 const enhancers = [applyMiddleware(...middleware)];
-// const initialState = {};
 const persistConfig = { enhancers };
 const store = createStore(clearState(reducers), undefined, compose(...enhancers));
 const persistor = persistStore(store, persistConfig, () => {
-//   console.log("Test", store.getState());
 });
 const configureStore = () => {
   return { persistor, store };

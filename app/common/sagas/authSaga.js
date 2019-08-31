@@ -40,7 +40,6 @@ export function* authorize({ username, password, isRegistering }) {
 
   // We then try to register or log in the user, depending on the request
   try {
-    const hash = ""; // hashSync(password, salt)
     let response;
 
     // For either log in or registering, we call the proper function in the `auth`
@@ -130,7 +129,7 @@ export function* loginFlow() {
       yield put(authActions.loginFailed());
       //   yield put(authActions.disableLoader({}));
       setTimeout(() => {
-        Alert.alert("BoilerPlate", response.Message);
+        Alert.alert("login failed", response.Message);
       }, 200);
     }
   }
