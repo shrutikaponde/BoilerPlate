@@ -1,5 +1,8 @@
 # Boilerplate for react-native
 
+[![React Native](https://img.shields.io/badge/React%20Native-v0.60.4-blue.svg)](https://facebook.github.io/react-native/)
+[![React Navigation V3](https://img.shields.io/badge/React%20Navigation-v3.8.1-blue.svg)](https://reactnavigation.org/)
+
 All you need to start your React Native application. This project is configured with redux, redux saga 
 and redux persist. Latest version of react-navigation with NavigationService.
 
