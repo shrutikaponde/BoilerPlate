@@ -1,5 +1,4 @@
 # Boilerplate for react-native
-===========================================
 
 All you need to start your React Native application. This project is configured with redux, redux saga 
 and redux persist. Latest version of react-navigation with NavigationService.
@@ -12,7 +11,7 @@ and redux persist. Latest version of react-navigation with NavigationService.
 - [`app/common/assets`](app/common/assets): assets (image, audio files, ...) used by the application
 - [`app/common/components`](app/common/components): pure components used in modules e.g. scrollview, spinner, message
 - [`app/common/config`](app/common/config): configuration of the application
-- [`app/common/constants`](app/common/constants): configuration of the application
+- [`app/common/constants`](app/common/constants): constants of the application e.g. stringConstants
 - [`app/common/lib`](app/common/lib): helper libs for components/ reducers e.g. create reducer
 - [`app/common/navigation`](app/common/navigation): react navigation ( navigation stck and navigation service )   
 - [`app/common/reducers`](app/common/reducers): redux reducers
